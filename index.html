@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom Navidad | Natura & Avon</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- SheetJS (Generador de Excel) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <!-- Fuentes de Marca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#9B111E',         /* Rojo Rubí Navideño */
+                            redHover: '#7A0C16',
+                            gold: '#D4AF37',        /* Dorado */
+                            green: '#1E4D2B',       /* Verde Pino */
+                            gray: '#F3F4F6',
+                        },
+                        avon: {
+                            primary: '#E2197C',
+                            light: '#FCE7F3'
+                        },
+                        text: {
+                            main: '#1F2937',
+                            sec: '#4B5563',
+                            mut: '#9CA3AF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['NaturaAndCo', 'Montserrat', 'Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'festive': '0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'NaturaAndCo';
+            src: local('NaturaAndCo'), local('Montserrat');
+            font-display: swap;
+        }
+
+        /* Fondo Navideño en alta definición */
+        body {
+            background: radial-gradient(circle at top center, #BD1325 0%, #700913 50%, #3D0208 100%);
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .snap-x { scroll-snap-type: x mandatory; }
+        .snap-start { scroll-snap-align: start; }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTCKV8TKXL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TTCKV8TKXL');
+    </script>
+</head>
+
+<body class="text-text-main font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header Blanco Puro -->
+    <header class="bg-white border-b-2 border-brand-gold shadow-festive sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 relative">
+            
+            <!-- Título y Marca (Sin la fecha de actualización) -->
+            <div class="flex-1 w-full">
+                <div class="flex items-center gap-3">
+                    <div id="brand-logo-container" class="transition-all duration-300">
+                         <span class="text-2xl font-extrabold tracking-tight text-brand-red" id="brand-title">Natura</span>
+                    </div>
+                    <div class="h-6 w-px bg-gray-200"></div>
+                    <h1 class="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        Showroom Navidad 🎄🎅
+                    </h1>
+                </div>
+            </div>
+            
+            <!-- Filtros -->
+            <div class="w-full lg:w-auto flex flex-col sm:flex-row items-end sm:items-center gap-3 mt-4 lg:mt-0">
+                
+                <!-- Buscador -->
+                <div class="w-full sm:w-48">
+                    <label for="search-input" class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1 pl-1">
+                        Buscar Cód / Producto
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Ej: 12345 o Regalo..." 
+                               class="w-full bg-brand-gray border border-gray-200 rounded-xl pl-10 pr-4 py-2.5 text-sm font-medium text-gray-800 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all">
+                        <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none stroke-[2.5]"></i>
+                    </div>
+                </div>
+
+                <!-- Selector Gerencia -->
+                <div class="w-full sm:w-56">
+                    <label for="gerencia-select" class="block text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1 pl-1">
+                        Gerencia de Ventas
+                    </label>
+                    <div class="relative">
+                        <select id="gerencia-select" class="w-full appearance-none bg-brand-gray border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-800 focus:outline-none focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 transition-all cursor-pointer">
+                            <option value="">Cargando gerencias...</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none stroke-[2.5]"></i>
+                    </div>
+                </div>
+
+                <!-- Botón Excel -->
+                <div class="w-full sm:w-auto">
+                    <button onclick="exportToExcel()" class="w-full bg-brand-green hover:bg-emerald-800 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95 h-[42px] border border-emerald-600">
+                        <i data-lucide="file-spreadsheet" class="w-4 h-4 text-yellow-300"></i>
+                        <span>Descargar en excel</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex gap-8 border-t border-gray-100 mt-2 lg:mt-0">
+            <button onclick="setTab('Natura')" id="tab-natura" class="py-3 px-1 text-sm font-bold uppercase tracking-widest text-brand-red border-b-[3px] border-brand-red transition-all duration-300">Natura</button>
+            <button onclick="setTab('Avon')" id="tab-avon" class="py-3 px-1 text-sm font-bold uppercase tracking-widest text-gray-400 border-b-[3px] border-transparent hover:text-avon-primary transition-all duration-300">Avon</button>
+        </div>
+    </header>
+
+    <!-- App Main -->
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-8">
+        
+        <!-- Loading State -->
+        <div id="loading" class="flex flex-col justify-center items-center py-20">
+            <div id="spinner" class="animate-spin rounded-full h-12 w-12 border-[3px] border-white/20 border-t-yellow-400"></div>
+            <p class="mt-5 text-yellow-300 font-bold tracking-widest text-[10px] uppercase animate-pulse">Sincronizando Planes Navidad...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden flex-col justify-center items-center py-24 text-center">
+            <div class="bg-white p-10 rounded-[2rem] shadow-2xl border border-yellow-500/30 max-w-lg mx-auto flex flex-col items-center">
+                <div class="bg-red-50 p-6 rounded-full mb-5">
+                    <i data-lucide="search-x" class="w-12 h-12 text-brand-red stroke-[1.5]"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2 tracking-tight">Sin resultados</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-md">No encontramos productos para esta búsqueda. Probá cambiando la palabra clave o limpiando el filtro.</p>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 hidden"></div>
+
+    </main>
+
+    <!-- Footer Blanco Puro -->
+    <footer class="bg-white border-t border-brand-gold/30 py-6 text-center px-4 mt-auto">
+        <p class="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">
+            &copy; <span id="year"></span> Natura &Co <span class="mx-2 opacity-30">|</span> Bien Estar Bien
+        </p>
+    </footer>
+
+    <script>
+        let db = { site: [], gerencias: [], cuotas: {} };
+        let state = { tab: 'Natura', gerenciaId: '', searchQuery: '' };
+
+        async function init() {
+            try {
+                const response = await fetch('./data.json?v=' + Date.now());
+                if (!response.ok) throw new Error('No se encontró el archivo de datos');
+                
+                const data = await response.json();
+                
+                db.site = data.site || [];
+                db.gerencias = data.gerencias || [];
+                db.cuotas = data.cuotas || {};
+
+                populateGerencias();
+                setupSearch();
+                
+                document.getElementById('loading').classList.add('hidden');
+                render();
+
+            } catch (err) {
+                console.error(err);
+                Swal.fire({
+                    title: 'Sincronización pendiente',
+                    text: 'Aún no se han sincronizado los datos desde la planilla original.',
+                    icon: 'info',
+                    confirmButtonColor: '#9B111E',
+                    customClass: { popup: 'rounded-3xl' }
+                });
+            }
+        }
+
+        function populateGerencias() {
+            const sel = document.getElementById('gerencia-select');
+            sel.innerHTML = '<option value="">Todas las Gerencias (Ver catálogo)</option>';
+            db.gerencias.sort((a,b) => a.name.localeCompare(b.name)).forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g.id;
+                opt.textContent = g.name;
+                sel.appendChild(opt);
+            });
+            sel.onchange = e => { state.gerenciaId = e.target.value; render(); };
+        }
+
+        function setupSearch() {
+            const input = document.getElementById('search-input');
+            input.oninput = e => {
+                state.searchQuery = e.target.value.toLowerCase().trim();
+                render();
+            };
+        }
+
+        function setTab(t) {
+            state.tab = t;
+            const isNatura = t === 'Natura';
+            
+            const btnN = document.getElementById('tab-natura');
+            const btnA = document.getElementById('tab-avon');
+            const title = document.getElementById('brand-title');
+            
+            if(isNatura) {
+                btnN.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-brand-red border-b-[3px] border-brand-red transition-all duration-300";
+                btnA.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-gray-400 border-b-[3px] border-transparent hover:text-avon-primary transition-all duration-300";
+                title.textContent = "Natura";
+                title.className = "text-2xl font-bold tracking-tight text-brand-red";
+            } else {
+                btnA.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-avon-primary border-b-[3px] border-avon-primary transition-all duration-300";
+                btnN.className = "py-3 px-1 text-sm font-bold uppercase tracking-widest text-gray-400 border-b-[3px] border-transparent hover:text-brand-red transition-all duration-300";
+                title.textContent = "Avon";
+                title.className = "text-2xl font-bold tracking-tight text-avon-primary";
+            }
+            render();
+        }
+
+        function getImg(marca, cod, type) {
+            const folder = type === 'A' ? marca.trim() : 'Alternativas';
+            return `./imagenes/${folder}/${cod}.jpg`;
+        }
+
+        async function shareImage(url, cod, desc) {
+            const fileName = `${cod}_${desc.replace(/[^a-z0-9]/gi, '_')}.jpg`;
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            try {
+                if (isMobile && navigator.canShare && navigator.share) {
+                    const response = await fetch(url);
+                    const blob = await response.blob();
+                    const file = new File([blob], fileName, { type: "image/jpeg" });
+
+                    if (navigator.canShare({ files: [file] })) {
+                        await navigator.share({
+                            files: [file],
+                            title: desc,
+                            text: `Mirá este regalo de Navidad 🎄: ${desc} (Cód: ${cod})`
+                        });
+                        return;
+                    }
+                }
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } catch (err) {
+                console.error('Error en la accion:', err);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                a.click();
+            }
+        }
+
+        function exportToExcel() {
+            if (!db.site || db.site.length === 0) {
+                Swal.fire({
+                    title: 'Sin datos',
+                    text: 'Aún no se han cargado los datos para exportar.',
+                    icon: 'warning',
+                    confirmButtonColor: '#9B111E'
+                });
+                return;
+            }
+
+            const rows = [];
+            let allItems = db.site;
+
+            const selectedGerenciaId = state.gerenciaId;
+            const gerenciasToProcess = selectedGerenciaId 
+                ? db.gerencias.filter(g => String(g.id) === String(selectedGerenciaId))
+                : db.gerencias;
+
+            allItems.forEach(item => {
+                const planA = item.plans.find(p => p.type === 'A') || {};
+                const planB = item.plans.find(p => p.type === 'B') || {};
+                const planC = item.plans.find(p => p.type === 'C') || {};
+                const planD = item.plans.find(p => p.type === 'D') || {};
+
+                if (gerenciasToProcess.length > 0) {
+                    gerenciasToProcess.forEach(g => {
+                        const getStock = (cod) => {
+                            if (!cod) return '-';
+                            const stock = db.cuotas[g.id]?.[cod];
+                            return stock !== undefined ? `${stock} un.` : 'Disponible';
+                        };
+
+                        rows.push({
+                            'Marca': item.marca,
+                            'Gerencia': g.name,
+                            'Cód. Plan A': planA.cod || '',
+                            'Descripción Plan A': planA.desc || '',
+                            'Cuota Plan A': getStock(planA.cod),
+                            'Cód. Plan B': planB.cod || '',
+                            'Descripción Plan B': planB.desc || '',
+                            'Cuota Plan B': getStock(planB.cod),
+                            'Cód. Plan C': planC.cod || '',
+                            'Descripción Plan C': planC.desc || '',
+                            'Cuota Plan C': getStock(planC.cod),
+                            'Cód. Plan D': planD.cod || '',
+                            'Descripción Plan D': planD.desc || '',
+                            'Cuota Plan D': getStock(planD.cod)
+                        });
+                    });
+                } else {
+                    rows.push({
+                        'Marca': item.marca,
+                        'Gerencia': 'Todas',
+                        'Cód. Plan A': planA.cod || '',
+                        'Descripción Plan A': planA.desc || '',
+                        'Cuota Plan A': 'Disponible',
+                        'Cód. Plan B': planB.cod || '',
+                        'Descripción Plan B': planB.desc || '',
+                        'Cuota Plan B': 'Disponible',
+                        'Cód. Plan C': planC.cod || '',
+                        'Descripción Plan C': planC.desc || '',
+                        'Cuota Plan C': 'Disponible',
+                        'Cód. Plan D': planD.cod || '',
+                        'Descripción Plan D': planD.desc || '',
+                        'Cuota Plan D': 'Disponible'
+                    });
+                }
+            });
+
+            const worksheet = XLSX.utils.json_to_sheet(rows);
+            worksheet['!cols'] = [
+                { wch: 10 }, { wch: 25 }, 
+                { wch: 12 }, { wch: 35 }, { wch: 14 },
+                { wch: 12 }, { wch: 35 }, { wch: 14 },
+                { wch: 12 }, { wch: 35 }, { wch: 14 },
+                { wch: 12 }, { wch: 35 }, { wch: 14 }
+            ];
+
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, `Navidad`);
+
+            const dateStr = new Date().toISOString().slice(0, 10);
+            XLSX.writeFile(workbook, `Showroom_Navidad_Natura_y_Avon_${dateStr}.xlsx`);
+        }
+
+        function render() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const grid = document.getElementById('product-grid');
+            const empty = document.getElementById('empty-state');
+            grid.innerHTML = '';
+
+            let filtered = db.site.filter(i => i.marca.trim().toLowerCase() === state.tab.trim().toLowerCase());
+
+            if (state.searchQuery) {
+                const q = state.searchQuery;
+                filtered = filtered.map(item => {
+                    const matchingPlans = item.plans.filter(p => 
+                        p.cod.toString().toLowerCase().includes(q) || 
+                        p.desc.toLowerCase().includes(q)
+                    );
+                    return matchingPlans.length > 0 ? { ...item, plans: matchingPlans } : null;
+                }).filter(Boolean);
+            }
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                empty.classList.remove('hidden');
+                empty.classList.add('flex');
+            } else {
+                grid.classList.remove('hidden');
+                empty.classList.add('hidden');
+                empty.classList.remove('flex');
+
+                filtered.forEach((item, idx) => {
+                    const card = document.createElement('div');
+                    card.className = "animate-fade-in bg-white rounded-2xl border-2 border-yellow-500/20 shadow-festive hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden";
+                    card.style.animationDelay = `${idx * 0.05}s`;
+
+                    const carousel = document.createElement('div');
+                    carousel.className = "flex overflow-x-auto snap-x";
+                    
+                    item.plans.forEach(plan => {
+                        const slide = document.createElement('div');
+                        slide.className = "min-w-full snap-start p-4 flex flex-col";
+                        
+                        const isMain = plan.type === 'A';
+                        const badgeColor = isMain ? (state.tab === 'Natura' ? 'bg-brand-red' : 'bg-avon-primary') : 'bg-gray-800';
+                        
+                        let quotaHTML = "";
+                        if (state.gerenciaId) {
+                            const stock = db.cuotas[state.gerenciaId]?.[plan.cod];
+                            if (stock !== undefined) {
+                                if (stock > 0) {
+                                    quotaHTML = `
+                                        <div class="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                                            <span class="text-[11px] font-bold">Cuota disponible: ${stock} un.</span>
+                                        </div>`;
+                                } else {
+                                    quotaHTML = `
+                                        <div class="flex items-center gap-1.5 text-rose-700 bg-rose-50 px-2.5 py-1 rounded-lg border border-rose-200">
+                                            <i data-lucide="x-circle" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                                            <span class="text-[11px] font-extrabold uppercase">Sin cuota disponible</span>
+                                        </div>`;
+                                }
+                            } else {
+                                quotaHTML = `
+                                    <div class="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                                        <span class="text-[11px] font-bold">Disponible</span>
+                                    </div>`;
+                            }
+                        } else {
+                            quotaHTML = `
+                                <span class="text-[10px] text-gray-500 font-medium italic flex items-center gap-1">
+                                    <i data-lucide="info" class="w-3 h-3 text-brand-red"></i> Elegí Gerencia para ver cuota
+                                </span>`;
+                        }
+
+                        const actionIcon = isMobile ? 'share-2' : 'download';
+                        const imgPath = getImg(item.marca, plan.cod, plan.type);
+                        const safeDesc = plan.desc.replace(/'/g, "\\'");
+                        
+                        slide.innerHTML = `
+                            <div class="relative mb-4">
+                                ${!isMain ? `
+                                    <span class="absolute top-2 left-2 z-10 ${badgeColor} text-white text-[9px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-widest shadow-sm">
+                                        Alternativa ${plan.type}
+                                    </span>
+                                ` : ''}
+
+                                <button onclick="shareImage('${imgPath}', '${plan.cod}', '${safeDesc}')" 
+                                   title="${isMobile ? 'Compartir' : 'Descargar'}"
+                                   class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full text-brand-red shadow-sm hover:bg-brand-red hover:text-white transition-all cursor-pointer border border-red-100">
+                                    <i data-lucide="${actionIcon}" class="w-4 h-4"></i>
+                                </button>
+
+                                <div class="w-full aspect-square bg-white rounded-xl border border-gray-100 overflow-hidden flex items-center justify-center">
+                                    <img src="${imgPath}" 
+                                         onerror="this.src='https://placehold.co/400x400/FFF5F5/9B111E?text=Próximamente'" 
+                                         class="w-full h-full object-contain mix-blend-multiply">
+                                </div>
+                            </div>
+                            <div class="flex-1 flex flex-col">
+                                <span class="text-[10px] text-brand-red font-bold tracking-widest uppercase mb-1">Cód: ${plan.cod}</span>
+                                <h4 class="text-sm font-bold text-gray-800 leading-tight mb-4 flex-1 line-clamp-2">${plan.desc}</h4>
+                                <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                                    ${quotaHTML}
+                                </div>
+                            </div>
+                        `;
+                        carousel.appendChild(slide);
+                    });
+
+                    card.appendChild(carousel);
+                    if (item.plans.length > 1) {
+                        const info = document.createElement('div');
+                        info.className = "px-5 pb-4 text-[9px] font-bold uppercase tracking-[0.2em] text-brand-red flex items-center gap-2";
+                        info.innerHTML = `<i data-lucide="arrow-left-right" class="w-3"></i> Desliza para ver alternativas`;
+                        card.appendChild(info);
+                    }
+                    grid.appendChild(card);
+                });
+            }
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
