@@ -267,8 +267,8 @@
         }
 
         function getImg(marca, cod, type) {
-            const folder = type === 'A' ? marca.trim() : 'Alternativas';
-            return `./imagenes/${folder}/${cod}.jpg`;
+            const brand = (marca || '').toString().trim().toLowerCase() === 'avon' ? 'Avon' : 'Natura';
+            return `./Imagenes/${brand}/${cod}.jpg`;
         }
 
         async function shareImage(url, cod, desc) {
