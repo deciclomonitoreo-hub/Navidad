@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-05T20:44:07Z",
+    "updatedAt":  "2026-11-05T20:54:38Z",
     "site":  [
                  {
                      "plans":  [
@@ -65,8 +65,13 @@
                      "plans":  [
                                    {
                                        "type":  "A",
+                                       "desc":  "Tododia Granada y almendras glaseadas",
+                                       "cod":  "282835"
+                                   },
+                                   {
+                                       "type":  "B",
                                        "desc":  "Tododia frambuesa",
-                                       "cod":  "76383"
+                                       "cod":  "281700"
                                    }
                                ],
                      "marca":  "Natura"
