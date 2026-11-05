@@ -1,7 +1,76 @@
 ﻿{
-    "updatedAt":  "2026-11-02T15:31:05Z",
+    "updatedAt":  "2026-11-05T20:44:07Z",
     "site":  [
-
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Regalo Preventa - Paz y humor",
+                                       "cod":  "282848"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Preventa - Paz y humor",
+                                       "cod":  "270308"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit tododia granada y almendras glas",
+                                       "cod":  "282847"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit tododia frambuesa",
+                                       "cod":  "281678"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Jabones regalables",
+                                       "cod":  "282840"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Jabones tododia frambuesa",
+                                       "cod":  "2831"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit mama y bebe",
+                                       "cod":  "282851"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit mama y bebe x3",
+                                       "cod":  "281682"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Tododia frambuesa",
+                                       "cod":  "76383"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 }
              ],
     "cuotas":  {
 
