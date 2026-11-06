@@ -1,21 +1,6 @@
 ﻿{
-    "updatedAt":  "2026-11-05T21:26:05Z",
+    "updatedAt":  "2026-11-06T13:39:57Z",
     "site":  [
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Regalo Preventa - Paz y humor",
-                                       "cod":  "282848"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Regalo Preventa - Paz y humor",
-                                       "cod":  "270308"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
                  {
                      "plans":  [
                                    {
@@ -72,6 +57,36 @@
                                        "type":  "B",
                                        "desc":  "Tododia frambuesa",
                                        "cod":  "270306"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit x4 Avon Care Rostro",
+                                       "cod":  "285858"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit Avon Care Rostro x4",
+                                       "cod":  "274177"
+                                   }
+                               ],
+                     "marca":  "Avon"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Faces prelanzamiento x 6",
+                                       "cod":  "283220"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Faces prelanzamiento x 5",
+                                       "cod":  "270284"
                                    }
                                ],
                      "marca":  "Natura"
