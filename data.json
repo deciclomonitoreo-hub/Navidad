@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-06T14:50:26Z",
+    "updatedAt":  "2026-11-06T15:14:36Z",
     "site":  [
                  {
                      "plans":  [
@@ -27,21 +27,6 @@
                                        "type":  "B",
                                        "desc":  "Jabones tododia frambuesa",
                                        "cod":  "2831"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Kit mama y bebe",
-                                       "cod":  "282851"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Kit mama y bebe x3",
-                                       "cod":  "281682"
                                    }
                                ],
                      "marca":  "Natura"
