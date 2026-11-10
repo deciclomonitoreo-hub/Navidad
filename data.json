@@ -1,153 +1,151 @@
-﻿{
-    "updatedAt":  "2026-11-06T15:14:36Z",
-    "site":  [
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Kit tododia granada y almendras glas",
-                                       "cod":  "282847"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Kit tododia frambuesa",
-                                       "cod":  "281678"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Jabones regalables",
-                                       "cod":  "282840"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Jabones tododia frambuesa",
-                                       "cod":  "2831"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Tododia Granada y almendras glaseadas",
-                                       "cod":  "282835"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Tododia frambuesa",
-                                       "cod":  "270306"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Kit x4 Avon Care Rostro",
-                                       "cod":  "285858"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Kit Avon Care Rostro x4",
-                                       "cod":  "274177"
-                                   }
-                               ],
-                     "marca":  "Avon"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
-                                       "desc":  "Faces prelanzamiento x 6",
-                                       "cod":  "283220"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Faces prelanzamiento x 5",
-                                       "cod":  "270284"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 }
-             ],
-    "cuotas":  {
-
-               },
-    "gerencias":  [
-                      {
-                          "id":  "300001692",
-                          "name":  "AMANCAY"
-                      },
-                      {
-                          "id":  "300001234",
-                          "name":  "AMBAY"
-                      },
-                      {
-                          "id":  "300000025",
-                          "name":  "ARRAYAN"
-                      },
-                      {
-                          "id":  "300001123",
-                          "name":  "COLIBRI"
-                      },
-                      {
-                          "id":  "300001121",
-                          "name":  "JACARANDA"
-                      },
-                      {
-                          "id":  "300001404",
-                          "name":  "ALGARROBO"
-                      },
-                      {
-                          "id":  "300000022",
-                          "name":  "LIRIO"
-                      },
-                      {
-                          "id":  "300000024",
-                          "name":  "MAITEN"
-                      },
-                      {
-                          "id":  "300001693",
-                          "name":  "CALDEN"
-                      },
-                      {
-                          "id":  "300001403",
-                          "name":  "GAVIOTA"
-                      },
-                      {
-                          "id":  "300001235",
-                          "name":  "LAPACHO"
-                      },
-                      {
-                          "id":  "300001694",
-                          "name":  "CEIBO"
-                      },
-                      {
-                          "id":  "300001292",
-                          "name":  "CONDOR"
-                      },
-                      {
-                          "id":  "300001367",
-                          "name":  "GUAYACAN"
-                      },
-                      {
-                          "id":  "300001122",
-                          "name":  "TIMBO"
-                      },
-                      {
-                          "id":  "300001293",
-                          "name":  "YAGUARETE"
-                      },
-                      {
-                          "id":  "300000021",
-                          "name":  "PASIONARIA"
-                      }
-                  ]
+{
+  "updatedAt": "2026-11-10T19:45:38Z",
+  "site": [
+    {
+      "plans": [
+        {
+          "cod": "282847",
+          "desc": "Kit tododia granada y almendras glas",
+          "type": "A"
+        },
+        {
+          "cod": "281678",
+          "desc": "Kit tododia frambuesa",
+          "type": "B"
+        }
+      ],
+      "marca": "Natura"
+    },
+    {
+      "plans": [
+        {
+          "cod": "282840",
+          "desc": "Jabones regalables",
+          "type": "A"
+        },
+        {
+          "cod": "2831",
+          "desc": "Jabones tododia frambuesa",
+          "type": "B"
+        }
+      ],
+      "marca": "Natura"
+    },
+    {
+      "plans": [
+        {
+          "cod": "282835",
+          "desc": "Tododia Granada y almendras glaseadas",
+          "type": "A"
+        },
+        {
+          "cod": "270306",
+          "desc": "Tododia frambuesa",
+          "type": "B"
+        }
+      ],
+      "marca": "Natura"
+    },
+    {
+      "plans": [
+        {
+          "cod": "285858",
+          "desc": "Kit x4 Avon Care Rostro",
+          "type": "A"
+        },
+        {
+          "cod": "274177",
+          "desc": "Kit Avon Care Rostro x4",
+          "type": "B"
+        }
+      ],
+      "marca": "Avon"
+    },
+    {
+      "plans": [
+        {
+          "cod": "283220",
+          "desc": "Faces prelanzamiento x 6",
+          "type": "A"
+        },
+        {
+          "cod": "270284",
+          "desc": "Faces prelanzamiento x 5",
+          "type": "B"
+        }
+      ],
+      "marca": "Natura"
+    }
+  ],
+  "cuotas": {},
+  "gerencias": [
+    {
+      "name": "AMANCAY",
+      "id": "300001692"
+    },
+    {
+      "name": "AMBAY",
+      "id": "300001234"
+    },
+    {
+      "name": "ARRAYAN",
+      "id": "300000025"
+    },
+    {
+      "name": "COLIBRI",
+      "id": "300001123"
+    },
+    {
+      "name": "JACARANDA",
+      "id": "300001121"
+    },
+    {
+      "name": "ALGARROBO",
+      "id": "300001404"
+    },
+    {
+      "name": "LIRIO",
+      "id": "300000022"
+    },
+    {
+      "name": "MAITEN",
+      "id": "300000024"
+    },
+    {
+      "name": "CALDEN",
+      "id": "300001693"
+    },
+    {
+      "name": "GAVIOTA",
+      "id": "300001403"
+    },
+    {
+      "name": "LAPACHO",
+      "id": "300001235"
+    },
+    {
+      "name": "CEIBO",
+      "id": "300001694"
+    },
+    {
+      "name": "CONDOR",
+      "id": "300001292"
+    },
+    {
+      "name": "GUAYACAN",
+      "id": "300001367"
+    },
+    {
+      "name": "TIMBO",
+      "id": "300001122"
+    },
+    {
+      "name": "YAGUARETE",
+      "id": "300001293"
+    },
+    {
+      "name": "PASIONARIA",
+      "id": "300000021"
+    }
+  ]
 }
