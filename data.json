@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-12T12:19:30Z",
+    "updatedAt":  "2026-11-12T16:05:19Z",
     "site":  [
                  {
                      "plans":  [
@@ -72,6 +72,21 @@
                                        "type":  "B",
                                        "desc":  "Faces prelanzamiento x 5",
                                        "cod":  "270284"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Regalo Rutina Mamá y bebé",
+                                       "cod":  "282851"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Regalo Mamá y bebé Colonia",
+                                       "cod":  "270283"
                                    }
                                ],
                      "marca":  "Natura"
