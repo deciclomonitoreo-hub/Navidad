@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-13T15:49:46Z",
+    "updatedAt":  "2026-11-17T03:08:08Z",
     "site":  [
                  {
                      "plans":  [
@@ -65,21 +65,6 @@
                      "plans":  [
                                    {
                                        "type":  "A",
-                                       "desc":  "Faces prelanzamiento x 6",
-                                       "cod":  "283220"
-                                   },
-                                   {
-                                       "type":  "B",
-                                       "desc":  "Faces prelanzamiento x 5",
-                                       "cod":  "270284"
-                                   }
-                               ],
-                     "marca":  "Natura"
-                 },
-                 {
-                     "plans":  [
-                                   {
-                                       "type":  "A",
                                        "desc":  "Regalo Rutina Mamá y bebé",
                                        "cod":  "282851"
                                    },
@@ -137,6 +122,21 @@
                                        "type":  "C",
                                        "desc":  "Tododia Cabellos Frambuesa Basico",
                                        "cod":  "270289"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Navidad 2026 - Essencial Exclusivo fem + BC",
+                                       "cod":  "282836"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit Essencial Mirra Fem",
+                                       "cod":  "272884"
                                    }
                                ],
                      "marca":  "Natura"
