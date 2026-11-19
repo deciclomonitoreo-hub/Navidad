@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-19T15:36:43Z",
+    "updatedAt":  "2026-11-19T15:38:03Z",
     "site":  [
                  {
                      "plans":  [
@@ -140,6 +140,21 @@
                                    }
                                ],
                      "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Megacombo Cuccina Donna x4",
+                                       "cod":  "296712"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Megacombo Cuccina Donna Marron x4 (Plan B)",
+                                       "cod":  "274172"
+                                   }
+                               ],
+                     "marca":  "Avon"
                  }
              ],
     "cuotas":  {
