@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-24T15:20:51Z",
+    "updatedAt":  "2026-11-24T19:33:23Z",
     "site":  [
                  {
                      "plans":  [
@@ -166,7 +166,22 @@
                                    {
                                        "type":  "B",
                                        "desc":  "Kit x6 300km/h y Black Suede (Plan B)",
-                                       "cod":  "272919"
+                                       "cod":  "274222"
+                                   }
+                               ],
+                     "marca":  "Avon"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit x8 LovU y Far Away",
+                                       "cod":  "285848"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit x7 LovU y Far Away",
+                                       "cod":  "274196"
                                    }
                                ],
                      "marca":  "Avon"
