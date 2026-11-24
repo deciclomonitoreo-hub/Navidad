@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-20T15:10:43Z",
+    "updatedAt":  "2026-11-24T15:20:51Z",
     "site":  [
                  {
                      "plans":  [
@@ -152,6 +152,21 @@
                                        "type":  "B",
                                        "desc":  "Megacombo Cuccina Donna Marron x4 (Plan B)",
                                        "cod":  "274172"
+                                   }
+                               ],
+                     "marca":  "Avon"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit x6 300km/h y Black Suede",
+                                       "cod":  "285856"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit x6 300km/h y Black Suede (Plan B)",
+                                       "cod":  "272919"
                                    }
                                ],
                      "marca":  "Avon"
