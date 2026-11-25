@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-25T12:08:21Z",
+    "updatedAt":  "2026-11-25T13:50:58Z",
     "site":  [
                  {
                      "plans":  [
@@ -182,6 +182,21 @@
                                        "type":  "B",
                                        "desc":  "Kit x6 LovU y Far Away",
                                        "cod":  "274196"
+                                   }
+                               ],
+                     "marca":  "Avon"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Kit x3 Moana",
+                                       "cod":  "296728"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Kit x3 Spiderman",
+                                       "cod":  "274191"
                                    }
                                ],
                      "marca":  "Avon"
