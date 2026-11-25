@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-25T13:50:58Z",
+    "updatedAt":  "2026-11-25T17:21:47Z",
     "site":  [
                  {
                      "plans":  [
@@ -200,6 +200,21 @@
                                    }
                                ],
                      "marca":  "Avon"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Una Elegance EDP 75ml",
+                                       "cod":  "282844"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Luna Radiante EDT 75ml",
+                                       "cod":  "272915"
+                                   }
+                               ],
+                     "marca":  "Natura"
                  }
              ],
     "cuotas":  {
