@@ -1,5 +1,5 @@
 ﻿{
-    "updatedAt":  "2026-11-27T15:40:53Z",
+    "updatedAt":  "2026-11-27T16:03:20Z",
     "site":  [
                  {
                      "plans":  [
@@ -257,6 +257,21 @@
                                        "type":  "B",
                                        "desc":  "Kit Naturé",
                                        "cod":  "281694"
+                                   }
+                               ],
+                     "marca":  "Natura"
+                 },
+                 {
+                     "plans":  [
+                                   {
+                                       "type":  "A",
+                                       "desc":  "Prelanz Faces x6",
+                                       "cod":  "283220"
+                                   },
+                                   {
+                                       "type":  "B",
+                                       "desc":  "Prelanz Faces x4",
+                                       "cod":  "272891"
                                    }
                                ],
                      "marca":  "Natura"
